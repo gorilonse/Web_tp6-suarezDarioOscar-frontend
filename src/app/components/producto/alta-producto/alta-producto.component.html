@@ -1,0 +1,43 @@
+<div class="row"> 
+    <div class="col-3"></div>
+    <div class="col-6"> 
+        <h1>PRÁCTICA BACKEND-FRONTEND</h1>
+        <h1>Alta Producto</h1>
+        <form>
+            <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" aria-describedby="ayudaNombre" name="nombre" [(ngModel)]="obProducto.nombre">
+            <div id="ayudaNombre" class="form-text">Ingresar Nombre del Prodcuto.</div>
+            </div>
+            <div class="mb-3">
+            <label for="descricion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" aria-describedby="ayudaDescripcion"name="descripcion" [(ngModel)]="obProducto.descripcion"  >
+            <div id="ayudaDescripcion" class="form-text">Ingresar Descripcion del Producto.</div>
+            </div>
+            <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="imagen" aria-describedby="ayudaImagen" name="Imagen" [(ngModel)]="obProducto.imagen">
+            <div id="ayudaImagen" class="form-text">Seleccionar una Imagen.</div>
+            </div>
+            <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" aria-describedby="ayudaPrecio" name="precio" [(ngModel)]="obProducto.precio">
+            <div id="ayudaPrecio" class="form-text">Ingresar el precio del producto.</div>
+            </div>
+            <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock" aria-describedby="ayudaStock" name="stock" [(ngModel)]="obProducto.stock">
+            <div id="ayudaStock" class="form-text">Ingresar la cantidad de existencia.</div>
+            </div>
+            <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="destacado" name="destacado" [(ngModel)]="obProducto.destacado">
+            <label class="form-check-label" for="destacado">Destacado</label>
+            <div id="ayudaDestacado" class="form-text">Si el procutor es Destacado marcar/seleccionar.</div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" name="crearProducto" (click)="crearProducto()">Crear</button>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

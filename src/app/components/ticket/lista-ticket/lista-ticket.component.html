@@ -1,0 +1,102 @@
+<!-- FILTRO PARA LA TABLA-->
+<div class="row">
+  <div class="col-10">
+    <form>
+      <div class="mb-3">
+        <select class="form-select" [(ngModel)]="categoriaEspectador" aria-label="Default select example" name="categoriaEspectador">
+            <option selected value="">Categoria de Espectador</option>
+            <option  value="l">Local</option>
+            <option  value="e">Extrangero</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-secondary" (click)="obtenerTicketPorCategoriaDeEspec()">Aplicar</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+<!--ULTIMA TABLA-->
+<div class="row">
+    <div class="col-0">
+    </div>
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID Tickets</th>
+                <th scope="col">Precio Ticket</th>
+                <th scope="col">Categoria Espectador</th>
+                <th scope="col">Fecha de Compra</th>
+                <th scope="col">Espectador Apellido</th>
+                <th scope="col">Espectador Nombre</th>
+                <th scope="col">Espectador DNI</th>
+                <th scope="col">Espectador Email</th>
+                <th scope="col">Espectador ID</th>
+              </tr>
+            </thead>
+            <tbody>     
+              <tr *ngFor="let t of listaTicket">
+                <td>{{t._id}}</td>
+                <td>{{t.precioTicket}}</td>
+                <td>{{t.categoriaEspectador}}</td>
+                <td>{{t.fechaCompra}}</td>
+                <td>{{t.espectador.apellido}}</td>
+                <td>{{t.espectador.nombre}}</td>
+                <td>{{t.espectador.dni}}</td>
+                <td>{{t.espectador.email}}</td>
+                <!-- <td>{{t.espectador._id}}</td> -->
+                <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" id="liveToastBtn" (click)="obtenerTicketsParaModal(t)">Modificar </button> </td> <!--AQUI PONGO MODAL-->
+               <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="liveToastBtn" (click)="obtenerTicketsParaModal(t)">ModificarModal </button> -->
+                <td><button class="btn btn-danger" (click)="eliminarUnTicket(t._id)">Eliminar </button> </td>
+              </tr> 
+            </tbody>
+          </table>
+    </div>
+    <div class="col-0">
+    </div>
+</div> 
+
+ <!-- Boton Modal-->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Datos del Ticket</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> <!-- Cuerpo del MODAL-->
+          <form>
+            <div class="mb-3">
+                <label for="precioReak" class="form-label">Precio Ticket</label>
+                <input type="number" class="form-control" id="precioReal" name="precioReal1" [(ngModel)]="obTicket.precioTicket">
+            </div>
+            <div class="mb-3">
+                <select class="form-select" [(ngModel)]="obTicket.categoriaEspectador" aria-label="Default select example" name="categoriaEspectador">
+                    <option selected value="">Categoria de Espectador</option>
+                    <option  value="l">Local</option>
+                    <option  value="e">Extrangero</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="fechaDeCompra" class="form-label">Fecha de Compra</label>
+                <input type="date" class="form-control" id="fechaDeCompra" name="fechaDeCompra" [(ngModel)]="obTicket.fechaCompra">
+            </div>
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="tipoEspectador" [(ngModel)]="obTicket.espectador" >
+                    <option  *ngFor="let e of listaEspectadores" [value]="e._id"> {{e.nombre}}</option>
+                </select>
+               
+            </div> 
+            <button type="submit" class="btn btn-primary" (click)="modificarTicket(obTicket._id,obTicket)" data-bs-dismiss="modal">Modificar </button>
+            <!-- <button type="submit" class="btn btn-primary" (click)="cargarVentasEntabla()" >ir a ventas</button> -->
+        </form>
+        
+        </div>
+        <div class="modal-footer">                        <!--para que al presionar se cierre-->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="obtenerTickets()">Cerrar</button>
+        </div>                                              
+      </div>
+    </div>
+  </div>

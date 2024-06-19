@@ -1,0 +1,50 @@
+<section class="row">
+    <div class="col-4"> </div>
+     <div class="col-4 " >
+        <form class="text-bg-secondary p-3">
+            <label class="form-label">De</label>
+            <select class="form-select" aria-label="Default select example" name="selector1" [(ngModel)]="obTransaccion.monedaOrigen">
+                <option value="USD">USD dolares EEUU</option>
+                <option value="BRL">BRL-Brasil</option>
+                <option value="ARS">ARS-Argentina</option>
+              </select>
+
+            <label class="form-label">A</label>
+            <select class="form-select" aria-label="Default select example" name="selector2" [(ngModel)]="obTransaccion.monedaDestino">
+                  <option value="ARS">ARS-Argentina</option>
+                  <option value="BRL">BRL-Brasil</option>
+                  <option value="USD">USD dolares EEUU</option>
+            </select>
+            <button type="submit" class="btn btn-primary m-3" (click)="obtenerTransaccionesCon2Filtros()">Filtrar</button>
+            <button type="submit" class="btn btn-success m-3" (click)="obtenerTransacciones()">Borrrar Filtro</button>
+          </form>
+     </div>
+     <div class="col-4"> </div> <!--Espacio entre formularions-->
+
+<!--ULTIMA TABLA-->
+   <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Cantidad Origen</th>
+                <th scope="col">Moneda Origen</th>
+                <th scope="col">Moneda Destino</th>
+                <th scope="col">Cantidad Destino</th>
+              </tr>
+            </thead>
+            <tbody>     
+              <tr *ngFor="let t of listaTransaccion">
+                <td>{{t.cantidadOrigen}}</td>
+                <td>{{t.monedaOrigen}}</td>
+                <td>{{t.monedaDestino}}</td>
+                <td>{{t.cantidadDestino}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-3">
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<main class="row">
+    <section class="row">
+        <div class="col-2"></div>
+        <div class="col-8"> 
+        <h3>Ratio/taza de Conversion de Divisas</h3>
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Monedas</th>
+                <th scope="col">ARS-Argentina</th>
+                <th scope="col">BRL-Brasil</th>
+                <th scope="col">USD-EstadosUnid </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">USD</th>
+                <td>159</td>
+                <td>753</td>
+                <td>456</td>
+              </tr>
+              <tr>
+                <th scope="row">ARS</th>
+                <td>951</td>
+                <td>654</td>
+                <td>987</td>
+              </tr>
+              <tr>
+                <th scope="row">BRL</th>
+                <td >100</td>
+                <td >200</td>
+                <td>300</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-2"></div>
+    </section>
+    <!--FORMULARIO 1 con TAZA incluida-->
+    <section class="row">
+    <div class="col-1"> </div>
+     <div class="col-4 " >
+        <form class="text-bg-secondary p-3">
+            <div class="mb-3">
+              <label class="form-label">Ingrese Cantidad</label>
+              <input type="number" class="form-control" id="cantidadOrigen1" name="cantidadOrigenDeDinero" [(ngModel)]="obTransaccion.cantidadOrigen">
+              <div id="cantidadOrigen" class="form-text">Se debe ingresar el dinero a convertir.</div>
+            </div>
+
+            <label class="form-label">De</label>
+            <select class="form-select" aria-label="Default select example" name="selector1" [(ngModel)]="obTransaccion.monedaOrigen">
+                <option value="USD">USD dolares EEUU</option>
+                <option value="BRL">BRL-Brasil</option>
+                <option value="ARS">ARS-Argentina</option>
+              </select>
+
+            <label class="form-label">A</label>
+            <select class="form-select" aria-label="Default select example" name="selector2" [(ngModel)]="obTransaccion.monedaDestino">
+                  <option value="ARS">ARS-Argentina</option>
+                  <option value="BRL">BRL-Brasil</option>
+                  <option value="USD">USD dolares EEUU</option>
+            </select>
+            <div class="mb-3 mt-3">
+                <label for="email"class="form-label">Ingrese correo electronico</label>
+                <input type="email" class="form-control" id="tazaDeConversion" name="email" [(ngModel)]="obTransaccion.emailCliente">
+                <div id="email" class="form-text">Un Email.</div>
+            </div>
+            <div class="mb-3 mt-3">
+                    <label for="tazaDeConversion"class="form-label">Ingrese Taza de Conversion</label>
+                    <input type="number" class="form-control" id="tazaDeConversion" name="tazaConversion" [(ngModel)]="obTransaccion.tasaConversion">
+                    <div id="tazaDeConversion" class="form-text">Utilizar guia en tabla.</div>
+            </div>
+            <div class="mb-3">
+              <label for="resultadoConversion" class="form-label">Resultado</label>
+              <input type="resultadoConversion" class="form-control" id="exampleInputPassword1" disabled readonly name="resultado" [(ngModel)]="obTransaccion.cantidadDestino">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" (click)="obteberTazasDeConversiones()">Convertir</button>
+          </form>
+     </div>
+     <div class="col-2"> </div> <!--Espacio entre formularions-->
+     <!--FORMULARIO 2 sin TAZA incluida-->
+     <div class="col-4 " >
+        <form class="text-bg-secondary p-3">
+            <div class="mb-3">
+              <label class="form-label">Ingrese Cantidad</label>
+              <input type="number" class="form-control" id="cantidadDinero">
+              <div id="cantidadDinero" class="form-text">Se debe ingresar el dinero a convertir.</div>
+            </div>
+
+            <label class="form-label">De</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>USD dolares EEUU</option>
+                <option value="2">Real Brazil</option>
+                <option value="3">Peso Argentino</option>
+              </select>
+
+            <label class="form-label">A</label>
+            <select class="form-select" aria-label="Default select example">
+                  <option selected>Peso Argentino</option>
+                  <option value="2">Real Brazil</option>
+                  <option value="3">USD dolares EEUU</option>
+            </select>
+            <div class="mb-3 mt-3">
+                    <label for="tazaDeConversion"class="form-label">Ingrese Taza de Conversion</label>
+                    <input type="number" class="form-control" id="tazaDeConversion">
+                    <div id="tazaDeConversion" class="form-text">Utilizar guia en tabla.</div>
+            </div>
+            <div class="mb-3">
+              <label for="resultadoConversion" class="form-label">Resultado</label>
+              <input type="resultadoConversion" class="form-control" id="exampleInputPassword1" disabled readonly>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Convertir</button>
+          </form>
+     </div>
+     <div class="col-1"> </div>
+    </section>
+
+
+
+   </main>

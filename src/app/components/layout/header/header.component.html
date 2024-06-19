@@ -1,0 +1,51 @@
+<div class="row">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Producto
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['altaProducto']">Alta </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" [routerLink]="['listaProducto']">Listar</a></li>
+                    </ul>
+              </li> <!--FINAL DE LA PARTE LISTA PRODUCTO-->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Transaccion
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" [routerLink]="['altaTransacion']">Alta </a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" [routerLink]="['listaTransaccion']">Listar</a></li>
+                </ul>
+                </li><!--FINAL DE TRANSACCION-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Espectador
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['altaEspectador']">Alta </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" [routerLink]="['listaEspectador']">Listar</a></li>
+                    </ul>
+                </li><!--FINAL DE ESPECTADOR-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Ticket
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['altaTicket']">Alta </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" [routerLink]="['listaTicket']">Listar</a></li>
+                    </ul>
+                </li><!--FINAL DE TICKET-->
+            </ul>
+        </div>
+        </div>
+      </nav>
+
+</div>
